@@ -1,0 +1,43 @@
+﻿<html>
+ <head>
+ <title>Задание 5</title>
+</head>
+<body bgcolor="#D8BFD8">
+<body>
+<form>
+<div class="drag">
+<div id="kot">
+<img src="https://i.pinimg.com/originals/06/4e/e2/064ee24888c1bd4798de70b6f3ced122.gif" height="400" width="500" ></img>
+</div>
+</div>
+</form>
+<script>
+  let kot= document.getElementById('kot'); 
+  kot.onmousedown = function(event) {
+  let shiftX = event.clientX - kot.getBoundingClientRect().left;
+  let shiftY = event.clientY - kot.getBoundingClientRect().top;
+  kot.style.position = 'absolute';
+  kot.style.zIndex = 1000;
+  document.body.append(kot);
+  moveAt(event.pageX, event.pageY);
+  function moveAt(pageX, pageY) {
+    kot.style.left = pageX - shiftX + 'px';
+    kot.style.top = pageY - shiftY + 'px';
+  }
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+  }
+  document.addEventListener('mousemove', onMouseMove);
+  kot.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+   kot.onmouseup = null;
+  };
+};
+kot.ondragstart = function() {
+  return false;
+};
+</script>
+</p>
+<h3>Перетащите котика</h3>
+</body>
+</html> 
