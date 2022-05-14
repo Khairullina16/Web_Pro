@@ -1,26 +1,278 @@
-﻿<!doctype html>
-<html>
-<head> 
-<meta charset="utf-8">
-<title>Задание 4</title> 
-</head> 
-<body> 
-<script language="JavaScript" type="text/JavaScript"> 
-var pass = prompt("Введите пароль (elina)", "");
-if(pass=="elina")
-alert("Пароль верный");
-else
-alert("Пароль неверный");
-var x, y; 
-x=parseInt(prompt("Введите значение х",'')); // метод parseInt() переводит строку в целое 
-y=parseInt(prompt("Введите значение у",'')); // число
-if(x==y)
-alert("Введенные числа равны!");
-else
-if(x<y) 
-alert(" Максимальное число - y");
-else 
-alert(" Максимальное число - x"); 
-</script> 
-</body> 
-</html> 
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <body background="https://cdn.pixabay.com/photo/2015/11/22/19/04/crowd-1056764_960_720.jpg">
+    <meta charset="UTF-8">
+    <title>Хайруллина Э.М.</title>
+    <script  src = "jquery.js"></script>
+    <script  src = "jquery-ui.js"></script>
+    <script  src = "jquery.ui.datepicker-ru.js"></script>
+    <link rel="stylesheet"  href="jquery-ui.css">
+</head>
+<body>
+<style >
+
+    #tabs {
+        margin: 10px 0;
+    }
+	.buy{
+	 background-color: #DCDCDC; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+	}
+    .tabs-nav {
+        overflow: hidden;
+        margin:0;
+        padding:500;
+    }
+    .tabs-nav li {
+        display: block;
+        float: left;
+        padding: 0;
+        list-style: none;
+    }
+    .tabs-nav a {
+        display: block;
+        padding: 10px 20px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid #fff;
+        background: #000;
+        font-size: 16px;
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+    }
+    .tabs-nav li:first-child a {
+        border-radius: 5px 0 0 0;
+    }
+    .tabs-nav li:last-child a {
+        display: block;
+        border-right: 1px solid #fff;
+        border-radius: 0 5px 0 0;
+    }
+    .tabs-nav a.active {
+        border-bottom: 1px solid #fff;
+        background: #fff;
+        color: #000;
+    }
+    .tabs-items {
+        border: 5px solid #ccc;
+        border-radius: 0 5px 5px 5px;
+        background: #000;
+        margin: -1px 0 0 0;
+        width: 800px;
+        color: #fff;
+    }
+    .tabs-item {
+        padding: 30px;
+    }
+    #slider{
+
+        margin: 1%;
+        width: 500px;
+    }
+</style>
+<p style="color:#FFFFFF"><big>Афиша мероприятий</big></p>
+<div id="tabs">
+
+    <ul class="tabs-nav">
+        <li><a href="#tab-1">LIZER</a></li>
+        <li><a href="#tab-2">Три дня дождя</a></li>
+        <li><a href="#tab-3">Dabro</a></li>
+    </ul>
+
+
+    <div class="tabs-items">
+        <div class="tabs-item" id="tab-1">
+            <img src="https://thumb.tildacdn.com/tild3136-3539-4332-b532-623361363632/-/resize/560x/-/format/webp/lizerconcert.jpg">
+            <p><big>Новый тур LIZER - первая за долгое время возможность увидеть артиста и вживую услышать новые песни.
+После предыдущего тура LIZER выпустил большое количество материала, включающее альбом «Молодость, Ч.1», собравший миллионы прослушиваний на музыкальных сервисах, а также такие песни, как «Водой», «Свобода», «Забыл» и другие.</big></p>
+        </div>
+        <div class="tabs-item" id="tab-2">
+            <img src="https://sun9-45.userapi.com/s/v1/if2/H7NGOcI8EgSyDIIecOJcMDrgP3MxybMA-Z-w_bc8VP6hAxaU19MHIDW4KnJslJ5Y54xnayF49kTj_6nclN1_u3OP.jpg?size=600x600&quality=96&type=album"  height="700" width="640">
+            <p><big>Долгожданный сольный тур одних из самых ярких представителей русского рока. Три дня дождя врываются в твой город с презентацией новой программы.</big> </p>
+        </div>
+        <div class="tabs-item" id="tab-3">
+            <img src="https://sun9-29.userapi.com/impg/c858520/v858520334/1fc508/ycW1SqGn7xg.jpg?size=604x394&quality=96&sign=ef34e7aaa727704912849c61c91b0960&type=album">
+            <p><big>КОНЦЕРТНЫЙ ТУР «ЮНОСТЬ»Вы услышите группу «Dabro» с live-бэндом. Это большая сольная программа с презентацией альбома «Юность», а также хитами «На часах ноль-ноль»,«Услышит весь район», «На крыше», «Думать о тебе» и др..</big></p>
+        </div>
+        <button id="buy" class="buy">Купить билет</button>
+    </div>
+
+</div>
+<div class="order">
+    <div class="order_name">Купить билет</div>
+    <div class="fio">ФИО: <input type="text" class="fio_input" id="name" name="user_name"></div>
+	<div class="mail">Email: <input type="email" class="email_input"></div>
+    <label for="start" >Количество персон:</label >
+    <input type="text" name="start" class="form-control" id="start" readonly>
+    <div id="slider"></div>
+    <label  for="date">Дата: </label >
+    <input type="text" name="date" class="form-control" id="date">
+    <br><label  for="city">Город:</label> 
+    <select id="city" name="select" >
+        <option selected value="s1">Уфа</option>
+        <option value="s2">Самара</option>
+        <option value="s3">Казань</option>
+		<option value="s4">Москва</option>
+		<option value="s5">Краснодар</option>
+    </select>
+	<p>Список городов будет обновляться. Следите за новостями.</p>
+    <div class="accordion">
+        <h3>Концертный зал Уфа:</h3>
+        <div>Уфа-Арена. Адрес: Уфа,ул. Ленина, 114</div>
+
+        <h3>Концертный зал Москва:</h3>
+        <div>Music Media Dome. ш. Энтузиастов, 5, стр. 2, Москва</div>
+
+        <h3>Концертный зал Казань:</h3>
+        <div>Уникс. Ул. Профессора Нужина,2</div>
+		
+		<h3>Концертный зал Самара:</h3>
+        <div>Звезда. ул. Ново-Садовая, 106г</div>
+		
+		<h3>Концертный зал Краснодар:</h3>
+        <div>The Rock Bar. ул. Горького, 104</div>
+    </div>
+        <br><label  for="promo">Промокод: </label >
+        <input type="text" name="promo" class="form-control" id="promo"><a onclick="event.preventDefault()"href=”#” title=kupi10>?</a>
+        <br><label  for="price">Итого: </label >
+        <input type="text" name="air" class="form-control" id="price" readonly>
+        <br><button id="done" class="done">Купить</button>
+
+</div>
+<div class="ready" title="Покупка совершена!">
+    Билет будет выслан на ваш e-mail в течении 5 минут.
+</div>
+<div class="accept" title="Покупка билета">
+    Совершая заказ Вы подтверждаете
+    согласие с условиями нашего договора-оферты
+    <br><button id="yes" class="yes">Согласен</button>
+    <button id="no" class="no">Ни за что!</button>
+</div>
+<script>
+    var price_person=1500;
+    var promo = 1;
+    $('.accordion').accordion({
+        heightStyle: 'content',
+        active: true
+    });
+    $('.accept').dialog({
+        autoOpen: false,
+        width: 350
+    });
+    $('.ready').dialog({
+        autoOpen: false,
+        width: 350
+    });
+    $('#yes').click(function(){
+        $('.accept').dialog('close');
+        $('.order').dialog('close');
+        $('.ready').dialog('open');
+    });
+    $('#no').click(function(){
+        $('.accept').dialog('close');
+    });
+    $('#done').click(function(){
+
+        if ($('.fio_input').val().length<2){
+            $('.fio_input').css({'border-color':'#d8512d'});
+        }
+		if (!$(".email_input").val().match(/[\@,]/g)){
+            $(".email_input").css({'border-color':'#d8512d'});
+            isEmpty = 0;
+        }
+        else if ($('#date').val().length==0){
+            $('#date').css({'border-color':'#d8512d'});
+        }
+        else {
+            $('#date').css({'border-color':'#000000'});
+            $('.accept').dialog('open');
+        }
+
+    });
+    $("#name").change(function(){
+        if ($(this).val().length<3){
+            $(this).css({'border-color':'#d8512d'});
+        }
+        else {
+            $(this).css({'border-color':'#000000'});
+        }
+        $('#price').val($('#start').val()*price_person*promo);
+
+
+    });
+    $("#promo").change(function(){
+        if ($(this).val()=="kupi10"){
+            promo = 0.90
+            $('#price').val($('#start').val()*price_person*promo);
+        }
+        else {
+            promo = 1;
+            $('#price').val($('#start').val()*price_person*promo);
+        }
+
+    });
+    $('.order').dialog({
+        autoOpen: false,
+        width: 700,
+        show: {effect: "clip", duration:800},
+        hide: {effect: "drop", duration:800}
+    });
+    $('#buy').click(function(){
+        $('.order').dialog('open');
+
+    } );
+    $( function() {
+        $("#date").datepicker({
+            dateFormat: "dd.mm.yy"
+
+        });
+        $( "#date" ).datepicker( $.datepicker.regional[ "ru" ] );
+    } );
+    $(function() {
+        $('#slider').slider({
+            min: 1,
+            max: 10,
+            step: 1,
+            slide: function (event, ui) {
+               $('#start').val(ui['value']);
+               $('#price').val($('#start').val()*price_person*promo);
+            }
+        });
+        $('#start').val($('#slider').slider('values',0));
+        $('#price').val($('#start').val()*price_person*promo);
+    });
+    $(function() {
+        var tab = $('#tabs .tabs-items > div');
+        tab.hide().filter(':first').show();
+        $('#tabs .tabs-nav a').click(function(){
+            tab.hide();
+            tab.filter(this.hash).show();
+
+            $('#tabs .tabs-nav a').removeClass('active');
+            $(this).addClass('active');
+            var current_tab = $(this).attr('href');
+            switch (current_tab){
+                case "#tab-1":
+                    $('.order_name').text("Купить билет Lizer");
+                    break;
+                case "#tab-2":
+                    $('.order_name').text("Купить билет Три дня дождя");
+                    break;
+                case "#tab-3":
+                    $('.order_name').text("Купить билет Dabro");
+                    break;
+            }
+            return false;
+
+        }).filter(':first').click()
+
+    });
+</script>
+</body>
+</html>
