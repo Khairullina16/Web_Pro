@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Новости</title>
+	 <script type="text/javascript" src="jquery.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	 <script>
+		let tek = 5;
+		function morenews(str) {
+			if (str.length==0) {
+			document.getElementById("news").innerHTML="";
+			return;
+			}
+			if (window.XMLHttpRequest) {
+				xmlhttp=new XMLHttpRequest();
+			} else {  
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function() {
+				if (this.readyState==4 && this.status==200) {
+  					document.getElementById("news").innerHTML=this.responseText;
+				}}
+		   	xmlhttp.open("GET","rss.php?tek="+tek,true);
+		  	 xmlhttp.send();
+		   	tek+=5;}
+	 </script>
+</head>
+<body>
+	</head>
+	<body>
+<BODY BGCOLOR="#F5FFFA">
+
+<center><h1>Новости о животных!</h1></center>
+<HR NOSHADE>
+			<h2>Кота взяли на службу в пожарную часть под Тюменью</h2>
+			<img src="https://100-hvostov.ru/images/novosti/novosti-00401.webp" width="600px" ><br>
+			<p><big>Кот по кличке Семён переселился в пожарно-спасательную часть №135 из дома одного из сотрудников, у сына которого выявили аллергию на кошек.
+			Зверь служит пожарным уже четыре года. Он очень общителен и серьёзно относится к службе – ежедневно выходит на развод караулов.</big></p>
+<HR NOSHADE>
+			<h2>Собака-поводырь из Китая заботится о слепой собаке</h2>
+			<img src="https://100-hvostov.ru/images/novosti/novosti-00373-01.webp" width="600px"><br>
+	        <p><big>Жительница Пекина завела для своей незрячей четвероногой питомицы поводыря. Белоснежная самоедская лайка по 
+			кличке Мэнгмэнг лишилась зрения в пятимесячном возрасте из-за глаукомы.</big><p>
+<HR NOSHADE>
+			<h2>Кот-полицейский появился в итальянском городе Турин</h2>
+			<img src="https://100-hvostov.ru/images/novosti/novosti-00364.webp" width="600px"><br>
+		<p><big>У зверя есть свой распорядок дня. К 10:30 кот приходит в полицейский офис и сразу направляется к шкафчику, где стражи правопорядка хранят его корм. 
+		        Получив причитающуюся порцию еды, Феликс благодарно мурлычет и отправляется заниматься своими кошачьими делами.</big><p>
+<HR NOSHADE>
+			<h2>Ворона перевела медлительного ежа через дорогу</h2>
+			<img src="https://100-hvostov.ru/images/novosti/novosti-00308.webp" width="600px" ><br>
+			<p><big>Ёжик переходил автотрассу в неположенном месте и остановился посреди дороги, подвергая опасности свою жизнь. 
+			Аварийную ситуацию заметила ворона, и начала подгонять клювом нерадивого пешехода в сторону обочины.
+			Птица довела ежа до бордюра и несколько раз попыталась убедить его перебраться через препятствие, однако на этот раз флегматичный зверёк не поддался на уговоры.</big><p>
+<HR NOSHADE>
+			<h2>Бродячий кот попросил мексиканку купить еду и обрёл дом</h2>
+			<img src="https://100-hvostov.ru/images/novosti/novosti-00288.webp" width="600px"><br>
+			 <p><big>Умный кот нашёл хозяйку, придумав оригинальный способ добывать себе пропитание. 
+			 Животное приводило прохожих в супермаркет к полкам с кошачьим кормом, сообщает Metro.</big><p>
+<HR NOSHADE>
+		<span id = "news"></span>
+		<form>
+			<input onclick = "morenews(this.value)" type="button" value="загрузить ещё" style="background-color: white; border-color: white; font: bold 18px Arial;">
+		</form>
+	</body>
+	</html> 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spisok>
+<comments>
+<name>
+Элина
+</name>
+<email>
+el@mail.ru
+</email>
+<comment>
+Интересный фильм!
+</comment>
+  </comments>
+     <comments>
+<name>
+Сергей
+</name>
+<email>
+sergey@mail.ru
+</email>
+<comment>
+Очень понравился.
+</comment>
+</comments>
+</spisok>
